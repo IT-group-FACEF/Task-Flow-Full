@@ -1,10 +1,13 @@
 // app.js
 const express = require('express');
 const cors = require('cors');
-const db = require('./database');
+const db = require('./db/database');
+const userRoutes = require('./routes/userRoutes');
 require('dotenv').config();
 
 const app = express();
+
+app.use('/users', userRoutes);
 
 // Configuração de CORS para permitir solicitações OPTIONS de qualquer origem
 app.options('*', cors());
